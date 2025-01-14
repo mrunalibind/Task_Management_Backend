@@ -3,7 +3,7 @@ import User from "../models/users.js";
 
 let authentication = async (req, res, next) => {
 
-    let token = req.cookies.token;
+    let token = req.cookies.token || req.headers.authorization.split(" ")[1];
     // console.log({token})
 
     jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {

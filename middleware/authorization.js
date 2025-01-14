@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import Task from "../models/tasks.js";
 
 let authorization = async (req, res, next) => {
-        let token = req.cookies.token;
+        let token = req.cookies.token || req.headers.authorization.split(" ")[1];
         let { taskID } = req.query;
         jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
             if (decoded) {

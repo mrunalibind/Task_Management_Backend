@@ -5,7 +5,7 @@ import cookie from "cookie-parser";
 app.use(cookie());
 app.use(cors(
     {
-        origin: 'http://localhost:5173', // Your frontend URL
+        origin: 'https://task-management-frontend-8gne.onrender.com', // Your frontend URL
         credentials: true,  // Allow cookies to be sent
     }
 ));
@@ -43,7 +43,7 @@ server.listen(process.env.PORT, async() => {
 
 export const io = new Server(server,{
     cors: {
-        origin: "http://localhost:5173", // Replace with your frontend URL
+        origin: "https://task-management-frontend-8gne.onrender.com", // Replace with your frontend URL
         credentials: true,
       },
     }
